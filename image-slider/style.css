@@ -17,12 +17,22 @@
   align-items: center;
 }
 
-img {
+.image-container {
   width: 8rem;
+  height: 40vh;
+}
+
+img {
+  position: absolute;
+  width: 8rem;
+  height: 40vh;
+  vertical-align: middle;
+  object-fit: contain;
+  transition: opacity 2s;
 }
 
 [data-hidden="true"] {
-  display: none;
+  opacity: 0;
 }
 
 button {
