@@ -12,10 +12,7 @@ function next() {
       }
     }
   } else {
-    imgList.forEach((image) => {
-      image.dataset.hidden = "true";
-    });
-    imgList[0].dataset.hidden = "false";
+    goToSlide(imgList[0]);
     styleCircles(circleList[0]);
   }
 }
@@ -31,10 +28,7 @@ function previous() {
       }
     }
   } else {
-    imgList.forEach((image) => {
-      image.dataset.hidden = "true";
-    });
-    imgList[imgList.length - 1].dataset.hidden = "false";
+    goToSlide(imgList[imgList.length - 1]);
     styleCircles(circleList[imgList.length - 1]);
   }
 }
@@ -56,10 +50,11 @@ function goToSlide(linkedSlide) {
 const nextButton = document.getElementById("next-button");
 const backButton = document.getElementById("back-button");
 
+// deal with button event listeners
 nextButton.addEventListener("click", next);
 backButton.addEventListener("click", previous);
 
-// deal with circles
+// deal with circle event listeners
 for (let i = 0; i < circleList.length; i++) {
   circleList[i].addEventListener("click", (e) => {
     styleCircles(e.target);
