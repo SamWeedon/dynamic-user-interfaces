@@ -1,0 +1,21 @@
+.frame {
+  width: 80 vw;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+}
+
+.slide {
+  width: 40vw;
+  border: 1px dotted red;
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  width: 8rem;
+}
+
+[data-hidden="true"] {
+  display: none;
+}
