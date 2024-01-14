@@ -2,24 +2,40 @@ const circleList = document.querySelectorAll(".circle");
 const imgList = document.querySelectorAll("img");
 
 function next() {
-  for (let i = 0; i < imgList.length - 1; i++) {
-    if (imgList[i].dataset.hidden === "false") {
-      imgList[i].dataset.hidden = "true";
-      imgList[i + 1].dataset.hidden = "false";
-      styleCircles(circleList[i + 1]);
-      break;
+  if (imgList[imgList.length - 1].dataset.hidden === "true") {
+    for (let i = 0; i < imgList.length - 1; i++) {
+      if (imgList[i].dataset.hidden === "false") {
+        imgList[i].dataset.hidden = "true";
+        imgList[i + 1].dataset.hidden = "false";
+        styleCircles(circleList[i + 1]);
+        break;
+      }
     }
+  } else {
+    imgList.forEach((image) => {
+      image.dataset.hidden = "true";
+    });
+    imgList[0].dataset.hidden = "false";
+    styleCircles(circleList[0]);
   }
 }
 
 function previous() {
-  for (let i = 1; i < imgList.length; i++) {
-    if (imgList[i].dataset.hidden === "false") {
-      imgList[i].dataset.hidden = "true";
-      imgList[i - 1].dataset.hidden = "false";
-      styleCircles(circleList[i - 1]);
-      break;
+  if (imgList[0].dataset.hidden === "true") {
+    for (let i = 1; i < imgList.length; i++) {
+      if (imgList[i].dataset.hidden === "false") {
+        imgList[i].dataset.hidden = "true";
+        imgList[i - 1].dataset.hidden = "false";
+        styleCircles(circleList[i - 1]);
+        break;
+      }
     }
+  } else {
+    imgList.forEach((image) => {
+      image.dataset.hidden = "true";
+    });
+    imgList[imgList.length - 1].dataset.hidden = "false";
+    styleCircles(circleList[imgList.length - 1]);
   }
 }
 
@@ -50,3 +66,8 @@ for (let i = 0; i < circleList.length; i++) {
     goToSlide(imgList[i]);
   });
 }
+
+const advanceSlide = setInterval(next, 5000);
+
+nextButton.addEventListener("click", () => clearInterval(advanceSlide));
+backButton.addEventListener("click", () => clearInterval(advanceSlide));
