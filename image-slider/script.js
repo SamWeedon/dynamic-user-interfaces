@@ -1,6 +1,7 @@
+const circleList = document.querySelectorAll(".circle");
+const imgList = document.querySelectorAll("img");
+
 function next() {
-  const imgList = document.querySelectorAll("img");
-  const circleList = document.querySelectorAll(".circle");
   for (let i = 0; i < imgList.length - 1; i++) {
     if (imgList[i].dataset.hidden === "false") {
       imgList[i].dataset.hidden = "true";
@@ -12,7 +13,6 @@ function next() {
 }
 
 function previous() {
-  const imgList = document.querySelectorAll("img");
   for (let i = 1; i < imgList.length; i++) {
     if (imgList[i].dataset.hidden === "false") {
       imgList[i].dataset.hidden = "true";
@@ -24,7 +24,6 @@ function previous() {
 }
 
 function styleCircles(clickedCircle) {
-  const circleList = document.querySelectorAll(".circle");
   circleList.forEach((circle) => {
     circle.dataset.active = "false";
   });
@@ -32,7 +31,6 @@ function styleCircles(clickedCircle) {
 }
 
 function goToSlide(linkedSlide) {
-  const imgList = document.querySelectorAll("img");
   imgList.forEach((image) => {
     image.dataset.hidden = "true";
   });
@@ -46,8 +44,6 @@ nextButton.addEventListener("click", next);
 backButton.addEventListener("click", previous);
 
 // deal with circles
-const circleList = document.querySelectorAll(".circle");
-const imgList = document.querySelectorAll("img");
 for (let i = 0; i < circleList.length; i++) {
   circleList[i].addEventListener("click", (e) => {
     styleCircles(e.target);
