@@ -2,7 +2,9 @@
   width: 80 vw;
   border: 1px solid black;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .slide {
@@ -18,4 +20,17 @@ img {
 
 [data-hidden="true"] {
   display: none;
+}
+
+.circle {
+  height: 10px;
+  width: 10px;
+  background-color: #cfcfcf;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.circle[data-active="true"] {
+  background-color: #555;
 }
